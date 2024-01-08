@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "nomadic-sprite-410610",
+  "private_key_id": "7acd1e20e66010d7c4d2308064926a52ca938c26",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCl+VsEWd9zyPtr\nz8LogGaikFR3pEl4qTZa5tnlydK9Rkka6YwS2gpDQOIrlRlLG8q7R8FmbSJ/UVxi\nOHOsbIVKaR7FxZiHNv/BppoYO5MwvBcLx1w9DGI424EGE0Kn64ttV7nwiRi+jjsm\nMHY8IjvBRo4LRM/FTudzp4YYCXlagaDrJCTH9vXM9nH8Skzx31Tz4I2tptM+U6BF\n2fubLUTJ71uI4DxPJYrlF9n5H78qIAm52CafydZdLR/8a5K9QNHURctanaC3njiA\nWK2PT6ZFvP8RytZtVbW5je/SJtKVUTkHlYktBBv+Ch1pgfgpVWDpcaT3wIWLLFz5\nQvNWszITAgMBAAECggEARPrJEppdjawSnkCnU2UGAvs0N9M+O9krv4ThO6jxHnwH\nJxm4fx9Ck6f0N8PMUtR2ofZVEUI7S6nfWOz4Wklx7jaZNP4GAfBgRDX/JiIgbulF\nNL6C/dZXPiUwTvuTQOHavTNwEmGQOKY5PAp5IU3jAtVVdKaBKZI9DGqsBvJtDqlU\n9vY8KFWAOECorBuyRS5QiAUblZyryCk3DhLyWIz0Sd6fyxTfgy2V51AX4zbwh2nO\nr+I0JORnqE/o+DNL8Nt4GaXV7Gc02Q9aPVdEUajmSop58OAW7SYS4OmiTdQJ90Qq\n6a2EDA5GcI1s2fo0tqdlJd4EzYI2K/a2JEiARohMPQKBgQDTrWd6H9QWSLA3GHBO\n4HN9zeMkFIANNzIfv3m2hw6WosupbSNj+uIgmieC6yseyOOBZ9QuUhsx+qWjoK9p\nd0T+E8uoYwDTD7JOSYZD/+jbbVdsRY8pe6UYP2ALwcq3+qGOCcWVa1APkdKNPmQa\n/7mM+9zUwtgGloCOYDMatragHwKBgQDIuhrVB9j0qCyZpqg6FwlHIJkuwUSSzlHe\n+IZIuHzxQxQFjcDHDb0MkZvFvJZHarPdDueDyRjzmcZY2AqG8yhV6jLx1S3Dc3cE\n5UJO7xy68DmVHbE5PhfB5KAVl12frwwmh+QPDghetf1TCOi+qPdZwCCKAITj71Q5\nJvfrxR7fjQKBgDCzRolcZUkzNAeZAc3D6g5Znhag+M0Rk+CmBvStofeaQM0cJPZN\ntFTX4ptGS8drZJxTLQfzL/qRtiYtQ+452I+0MjjtfjUQ+W71j4R5jjNdtq1cW5Gp\nttQbUJej4GXvrdel++ViqSrL2+tPHWzwxNng4G+63ES3v6ACFf/hZab1AoGAAfwV\nF9YkBwdCqaJEN47SwKlJ2nR+wRTZKmM6sK1iTuBi6kskhNNV8zHdYG8k7T/Y1262\nS09Jt97lXyuDryHoXDEcn9eDxFL38kxyA2XJ2u9VImxQvEgo4/nmu0/r1RBeBmOB\nlcSFwKn7/z4vTvNMvs5vg+3NYpOTOZ1xBhvE2mECgYBoJNIOG7XFXPoV7kMJrCPO\nvUDRJ6whN4RCDoPTBY9W4Zu4nfJI+XwucXBIkrLThybw0YfctxqRUxg+ZqzWYZFJ\nMvhuJHt6wnfWmnpuOaXFHRjhCHMJ17W1ouTbA2O3/WGMhA1kG+GKrB2e1qn7PU9K\nWx9b1Kd9XTFIIjECaMFfcw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "readgooglesheet@nomadic-sprite-410610.iam.gserviceaccount.com",
+  "client_id": "115656858227049902718",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/readgooglesheet%40nomadic-sprite-410610.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
