@@ -19,7 +19,7 @@ df=df.iloc[:,:7]
 
 #EDA
 df.rename(columns={'ประทับเวลา':'Time',
-                   'ชื่อ-สกุล':'Name',
+                   'ชื่อ สกุล':'Name',
                    'ชั้น':'Class',
                    'สังกัด':'BeUnder',
                    'จำหน่าย':'Participation',
@@ -64,3 +64,8 @@ for i in range(5):
     col3.metric('คงกอง',f'{All_Count-Count}')
     dx=df[df.Class==i+1].groupby('Participation').sum()['Count']
     dx
+
+data2 = conn.read(worksheet='การตอบแบบฟอร์ม 2')
+dc=pd.DataFrame(data2)
+dc=dc.dropna(how='all')
+dc
