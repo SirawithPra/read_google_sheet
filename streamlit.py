@@ -7,9 +7,9 @@ import plotly.graph_objects as go
 
 conn = st.connection("gsheets", type=GSheetsConnection)
 st.write('Test')
-data = conn.read(worksheet='Test')
+data = conn.read(worksheet='การตอบแบบฟอร์ม 1')
 df=pd.DataFrame(data)
-df=df.dropna(how='all')
+# df=df.dropna(how='all')
 df2=df.groupby(['ชั้น']).count()
 
 
@@ -24,3 +24,4 @@ fig
 df3=df2=df.groupby(['อื่นๆ รายละเอียด']).count()
 df3.rename(columns={'ชื่อ สกุล':'จำนวนคน'},inplace=True)
 df3['จำนวนคน']
+df.shape
