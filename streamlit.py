@@ -4,35 +4,11 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
-# conn = st.connection("gsheets", type=GSheetsConnection)
-# data = conn.read(worksheet='การตอบแบบฟอร์ม 1')
-# df=pd.DataFrame(data)
-# df=df.dropna(how='all')
+conn = st.connection("gsheets", type=GSheetsConnection)
+data = conn.read(worksheet='การตอบแบบฟอร์ม 1')
+df=pd.DataFrame(data)
+df=df.dropna(how='all')
 
-# สร้างฟังก์ชันสำหรับดึงข้อมูลจาก Google Sheets
-def get_data_from_sheets():
-    conn = st.connection("gsheets", type=GSheetsConnection)
-    data = conn.read(worksheet='การตอบแบบฟอร์ม 1')  # แทน Your_Worksheet_Name ด้วยชื่อของ worksheet ที่ต้องการใช้
-    df = pd.DataFrame(data)
-    df=df.dropna(how='all')
-    return df
-
-# การดึงข้อมูลเริ่มต้นเมื่อเริ่ม Streamlit
-@st.cache_data()
-def load_data():
-    return get_data_from_sheets()
-
-# แสดงข้อมูลบน Streamlit
-df = load_data()
-st.write("ข้อมูลจาก Google Sheets")
-st.write(df)
-
-# สร้างปุ่มเพื่ออัปเดตข้อมูล
-if st.button("อัปเดตข้อมูล"):
-    new_data = get_data_from_sheets()  # ดึงข้อมูลจาก Google Sheets
-    st.write("ข้อมูลที่อัปเดต")
-    st.write(new_data)  # แสดงข้อมูลที่อัปเดตบน Streamlit
-    
     
 #raw data
 counts = pd.read_csv('number.txt', sep=",")
