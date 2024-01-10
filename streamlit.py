@@ -69,8 +69,3 @@ data2 = conn.read(worksheet='การตอบแบบฟอร์ม 2')
 dc=pd.DataFrame(data2)
 dc=dc.dropna(how='all')
 dc
-
-submit=st.button(';;dsfsd')
-if submit:
-    conn = st.connection("gsheets", type=GSheetsConnection)
-    data = conn.read(worksheet='การตอบแบบฟอร์ม 1')
