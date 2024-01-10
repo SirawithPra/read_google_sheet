@@ -23,4 +23,4 @@ sheet = gc.open_by_key('1rrdzFjxheFK5MiJI-PqxjmBrDc-cO5CBlP8dChYuXGo')
 worksheet = sheet.get_worksheet(0)  # เลือก Worksheet ตาม index
 data = worksheet.get_all_values()  # ดึงข้อมูลทั้งหมดในรูปแบบของ List
 
-data
+st.table(data)
