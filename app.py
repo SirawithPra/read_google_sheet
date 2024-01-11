@@ -23,13 +23,15 @@ worksheet = sheet.get_worksheet(0)  # เลือก Worksheet ตาม index
 data = worksheet.get_all_values()  # ดึงข้อมูลทั้งหมดในรูปแบบของ List
 
 df=pd.DataFrame(data[1:],columns=data[0])
+
 df.index += 1
 st.header('รายชื่อยอดจำหน่าย')
 df[['ชื่อ สกุล','ชั้น','สังกัด', 'จำหน่าย', 'หมายเหตุ','กรณีจำหน่ายมากกว่า 10 คน','ประทับเวลา']]
 #EDA
 worksheet2 = sheet.get_worksheet(1)  # เลือก Worksheet ตาม index
 data2 = worksheet2.get_all_values()  # ดึงข้อมูลทั้งหมดในรูปแบบของ List
-dc=pd.DataFrame(data2[1:],columns=data2[0])
+dc=pd.DataFrame(data2[1:],columns=data2[0]) 
+
 st.write('')
 st.header('รายชื่อยอดจำหน่ายมากกว่า 1 แถว')
 dc.index += 1
@@ -43,6 +45,7 @@ df.rename(columns={'ประทับเวลา':'Time',
                    'จำหน่าย':'Participation',
                    'หมายเหตุ':'Etc',
                    'กรณีจำหน่ายมากกว่า 10 คน':'Count'},inplace=True)
+df.loc[~df.Class.str.isnumeric(),'Class']=0
 df.Class=df.Class.astype(int)
 df.loc[df['Count']=='','Count']=1
 df.Count=df.Count.astype(int)
