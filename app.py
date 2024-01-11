@@ -23,7 +23,8 @@ worksheet = sheet.get_worksheet(0)  # เลือก Worksheet ตาม index
 data = worksheet.get_all_values()  # ดึงข้อมูลทั้งหมดในรูปแบบของ List
 
 df=pd.DataFrame(data[1:],columns=data[0])
-df
+df.index += 1 
+df[['ชื่อ สกุล','ชั้น','สังกัด', 'จำหน่าย', 'หมายเหตุ','กรณีจำหน่ายมากกว่า 10 คนขึ้นไป','ประทับเวลา']]
 #EDA
 df.rename(columns={'ประทับเวลา':'Time',
                    'ชื่อ สกุล':'Name',
@@ -35,7 +36,6 @@ df.rename(columns={'ประทับเวลา':'Time',
 df.Class=df.Class.astype(int)
 df.loc[df['Count']=='','Count']=1
 df.Count=df.Count.astype(int)
-df
 
 #raw data
 counts = pd.read_csv('number.txt', sep=",")
@@ -49,14 +49,12 @@ counts.Class=counts.Class.astype(int)
 df2.Class=df2.Class.astype(int)
 df3=pd.merge(counts, df2,how="left", on="Class")
 df3.loc[~(df3.Count>0),'Count']=0
-df3
 df3=df3.set_index('Class')
+df3
 sum = df3.sum()
 sum.name = 'ยอดรวม'
 sum
 df3 = df3.append(sum.transpose())
-counts
-df2
 st.write('')
 st.header('ยอดรวม')
 col1, col2, col3 = st.columns(3)
