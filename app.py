@@ -27,7 +27,7 @@ df = df.drop(df[df['ประทับเวลา']==''].index)
 df.dropna(how='all',inplace=True)
 df.index += 1
 st.header('รายชื่อยอดจำหน่าย')
-df[['ชื่อ สกุล','ชั้น','สังกัด', 'จำหน่าย', 'หมายเหตุ','กรณีจำหน่ายมากกว่า 10 คน','ประทับเวลา']]
+st.table(df[['ชื่อ สกุล','ชั้น','สังกัด', 'จำหน่าย', 'หมายเหตุ','กรณีจำหน่ายมากกว่า 10 คน','ประทับเวลา']])
 #EDA
 worksheet2 = sheet.get_worksheet(1)  # เลือก Worksheet ตาม index
 data2 = worksheet2.get_all_values()  # ดึงข้อมูลทั้งหมดในรูปแบบของ List
@@ -39,7 +39,7 @@ dc.index += 1
 st.write('')
 st.header('รายชื่อยอดจำหน่ายมากกว่า 1 แถว')
 
-dc[['ชื่อ สกุล','ชั้น','สังกัด', 'จำหน่าย', 'หมายเหตุ','กรณีจำหน่ายมากกว่า 10 คน','ประทับเวลา']]
+st.table(dc[['ชื่อ สกุล','ชั้น','สังกัด', 'จำหน่าย', 'หมายเหตุ','กรณีจำหน่ายมากกว่า 10 คน','ประทับเวลา']])
 df = pd.concat([df,dc])
 
 df.rename(columns={'ประทับเวลา':'Time',
@@ -102,6 +102,6 @@ for i in range(5):
     col3.metric('คงกอง',f'{All_Count-Count}')
     
     dx=df[df.Class==i+1].rename(columns={'Participation':'จำหน่าย','Count':'จำนวน'}).groupby('จำหน่าย').sum()['จำนวน']
-    dx
+    st.table(dx)
 
 
