@@ -23,18 +23,22 @@ worksheet = sheet.get_worksheet(0)  # เลือก Worksheet ตาม index
 data = worksheet.get_all_values()  # ดึงข้อมูลทั้งหมดในรูปแบบของ List
 
 df=pd.DataFrame(data[1:],columns=data[0])
-
+df = df.drop(df[df['ประทับเวลา']==''].index)
+df.dropna(how='all',inplace=True)
 df.index += 1
 st.header('รายชื่อยอดจำหน่าย')
 df[['ชื่อ สกุล','ชั้น','สังกัด', 'จำหน่าย', 'หมายเหตุ','กรณีจำหน่ายมากกว่า 10 คน','ประทับเวลา']]
 #EDA
 worksheet2 = sheet.get_worksheet(1)  # เลือก Worksheet ตาม index
 data2 = worksheet2.get_all_values()  # ดึงข้อมูลทั้งหมดในรูปแบบของ List
-dc=pd.DataFrame(data2[1:],columns=data2[0]) 
+dc=pd.DataFrame(data2[1:],columns=data2[0])
+dc = dc.drop(dc[dc['ประทับเวลา']==''].index)
+dc.dropna(how='all',inplace=True)
+dc.index += 1
 
 st.write('')
 st.header('รายชื่อยอดจำหน่ายมากกว่า 1 แถว')
-dc.index += 1
+
 dc[['ชื่อ สกุล','ชั้น','สังกัด', 'จำหน่าย', 'หมายเหตุ','กรณีจำหน่ายมากกว่า 10 คน','ประทับเวลา']]
 df = pd.concat([df,dc])
 
@@ -96,7 +100,8 @@ for i in range(5):
     col1.metric('ยอดเดิม',f'{All_Count}')
     col2.metric('จำหน่าย',f'{Count}')
     col3.metric('คงกอง',f'{All_Count-Count}')
-    dx=df[df.Class==i+1].groupby('Participation').sum()['Count']
+    
+    dx=df[df.Class==i+1].rename(columns={'Participation':'จำหน่าย','Count':'จำนวน'}).groupby('จำหน่าย').sum()['จำนวน']
     dx
 
 
