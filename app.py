@@ -23,9 +23,18 @@ worksheet = sheet.get_worksheet(0)  # เลือก Worksheet ตาม index
 data = worksheet.get_all_values()  # ดึงข้อมูลทั้งหมดในรูปแบบของ List
 
 df=pd.DataFrame(data[1:],columns=data[0])
-df.index += 1 
+df.index += 1
+st.header('รายชื่อยอดจำหน่าย')
 df[['ชื่อ สกุล','ชั้น','สังกัด', 'จำหน่าย', 'หมายเหตุ','กรณีจำหน่ายมากกว่า 10 คนขึ้นไป','ประทับเวลา']]
 #EDA
+worksheet2 = sheet.get_worksheet(1)  # เลือก Worksheet ตาม index
+data2 = worksheet2.get_all_values()  # ดึงข้อมูลทั้งหมดในรูปแบบของ List
+dc=pd.DataFrame(data2[1:],columns=data2[0])
+st.write('')
+st.header('รายชื่อยอดจำหน่ายมากกว่า 1 แถว')
+dc[['ชื่อ สกุล','ชั้น','สังกัด', 'จำหน่าย', 'หมายเหตุ','กรณีจำหน่ายมากกว่า 10 คนขึ้นไป','ประทับเวลา']]
+df = pd.concat([df,dc])
+
 df.rename(columns={'ประทับเวลา':'Time',
                    'ชื่อ สกุล':'Name',
                    'ชั้น':'Class',
@@ -67,10 +76,12 @@ sum.name = 'ยอดรวม'
 dx = dx.append(sum)
 dx=dx.astype(int)
 dx= dx.reset_index()
-dx.loc[6,'index']='รวม'
+dx.loc[dx.shape[0]-1,'index']='รวม'
 dx.set_index('index',inplace=True)
 dx.rename(columns={0:'จำนวน'},inplace=True)
 col2.table(dx)
+
+
 col1, col2 ,col3= st.columns(3)
 for i in range(5):
     st.write('')
@@ -84,8 +95,4 @@ for i in range(5):
     dx=df[df.Class==i+1].groupby('Participation').sum()['Count']
     dx
 
-worksheet2 = sheet.get_worksheet(1)  # เลือก Worksheet ตาม index
-data2 = worksheet2.get_all_values()  # ดึงข้อมูลทั้งหมดในรูปแบบของ List
 
-dc=pd.DataFrame(data2[1:],columns=data2[0])
-dc
