@@ -50,24 +50,28 @@ df2.Class=df2.Class.astype(int)
 df3=pd.merge(counts, df2,how="left", on="Class")
 df3.loc[~(df3.Count>0),'Count']=0
 df3=df3.set_index('Class')
-df3
 sum = df3.sum()
 sum.name = 'ยอดรวม'
-sum
 df3 = df3.append(sum.transpose())
 st.write('')
 st.header('ยอดรวม')
-col1, col2, col3 = st.columns(3)
+col1, col2 = st.columns(2)
 df3=df3.astype(int)
-col1.table(df3)
+df3 = df3.rename_axis('Class')
+df3['คงกอง']=df3.All_Count-df3.Count
+col1.table(df3.rename(columns={'All_Count':'คงสังกัด','Count':'จำหน่าย'}))
 
 dx=df.groupby('Participation').sum()['Count']
 sum = pd.Series(dx.sum())
 sum.name = 'ยอดรวม'
-dx = dx.append(sum.transpose())
+dx = dx.append(sum)
 dx=dx.astype(int)
+dx= dx.reset_index()
+dx.loc[6,'index']='รวม'
+dx.set_index('index',inplace=True)
+dx.rename(columns={0:'จำนวน'},inplace=True)
 col2.table(dx)
-
+col1, col2 ,col3= st.columns(3)
 for i in range(5):
     st.write('')
     st.header(f'ชั้น{i+1}')
