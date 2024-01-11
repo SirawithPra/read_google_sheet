@@ -45,13 +45,18 @@ counts.rename(columns={'index':'Class'
 
 #all summary data
 df2=df.groupby('Class').sum().reset_index()[['Class','Count']]
-df3=pd.concat([counts,df2['Count']], axis=1, join="outer")
+counts.Class=counts.Class.astype(int)
+df2.Class=df2.Class.astype(int)
+df3=pd.merge(counts, df2,how="left", on="Class")
 df3.loc[~(df3.Count>0),'Count']=0
+df3
 df3=df3.set_index('Class')
 sum = df3.sum()
 sum.name = 'ยอดรวม'
 sum
 df3 = df3.append(sum.transpose())
+counts
+df2
 st.write('')
 st.header('ยอดรวม')
 col1, col2, col3 = st.columns(3)
@@ -64,8 +69,6 @@ sum.name = 'ยอดรวม'
 dx = dx.append(sum.transpose())
 dx=dx.astype(int)
 col2.table(dx)
-
-
 
 for i in range(5):
     st.write('')
